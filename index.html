@@ -1,290 +1,332 @@
-import React, { useState } from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Star, ThumbsUp, Smile, Book, PiggyBank, Trophy, Palette, Brain, Heart } from 'lucide-react';
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aventura Familiar González Hauser</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-blue-50 p-8">
+    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-xl p-8">
+        <!-- Bienvenida -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-blue-600 mb-4">¡Bienvenidos a nuestra Aventura Familiar!</h1>
+            <h2 class="text-2xl text-gray-600">Busch Gardens Tampa Bay - 2 de Enero de 2025</h2>
+            <p class="mt-4 text-gray-600">Una oportunidad para crecer, aprender y divertirnos juntos</p>
+        </header>
 
-const FamilyAdventure = () => {
-  const [attitudes, setAttitudes] = useState({
-    evita: { midday: 0, endday: 0 },
-    mara: { midday: 0, endday: 0 },
-    adrian: { midday: 0, endday: 0 }
-  });
-  
-  const [feelings, setFeelings] = useState({
-    evita: '',
-    mara: '',
-    adrian: ''
-  });
-  
-  const [activities, setActivities] = useState({
-    rollercoaster: [],
-    favorite: '',
-    learned: ''
-  });
+        <!-- Metas del Parque -->
+        <section class="mb-12 bg-yellow-50 p-6 rounded-lg">
+            <h2 class="text-2xl font-bold mb-6 text-center">🎢 Theme Park Goals</h2>
+            <p class="text-gray-600 mb-4">Queridos Evita, Mara y Adrian Joaquín: Establecer y cumplir metas es una habilidad muy importante que nos ayudará todo el año cuando regresemos a Monterrey. ¡Practiquemos juntos!</p>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="flex items-center p-3 bg-white rounded-lg shadow-sm">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600">
+                        <span class="ml-2">📚 Read ride descriptions</span>
+                    </label>
+                    <p class="text-sm text-gray-600 ml-8">Lee las descripciones de los juegos - ¡practicar la lectura nos ayuda a tomar mejores decisiones!</p>
+                </div>
+                <div>
+                    <label class="flex items-center p-3 bg-white rounded-lg shadow-sm">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600">
+                        <span class="ml-2">💰 Budget spending money wisely</span>
+                    </label>
+                    <p class="text-sm text-gray-600 ml-8">Administra tu dinero sabiamente - ¡una habilidad importante para toda la vida!</p>
+                </div>
+                <div>
+                    <label class="flex items-center p-3 bg-white rounded-lg shadow-sm">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600">
+                        <span class="ml-2">🎯 Try one new ride</span>
+                    </label>
+                    <p class="text-sm text-gray-600 ml-8">Atrévete a probar algo nuevo - ¡el valor nos ayuda a crecer!</p>
+                </div>
+                <div>
+                    <label class="flex items-center p-3 bg-white rounded-lg shadow-sm">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600">
+                        <span class="ml-2">🎨 Find 3 things to draw later</span>
+                    </label>
+                    <p class="text-sm text-gray-600 ml-8">Encuentra inspiración para dibujar - ¡desarrolla tu creatividad!</p>
+                </div>
+                <div>
+                    <label class="flex items-center p-3 bg-white rounded-lg shadow-sm">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600">
+                        <span class="ml-2">🔢 Count waiting times</span>
+                    </label>
+                    <p class="text-sm text-gray-600 ml-8">Practica matemáticas con los tiempos de espera - ¡las matemáticas están en todas partes!</p>
+                </div>
+                <div>
+                    <label class="flex items-center p-3 bg-white rounded-lg shadow-sm">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600">
+                        <span class="ml-2">❤️ Thank a park worker</span>
+                    </label>
+                    <p class="text-sm text-gray-600 ml-8">Agradece a quienes nos ayudan - ¡la gratitud nos hace mejores personas!</p>
+                </div>
+                <div class="text-center mt-4 text-gray-600">
+                    Done: <span id="goals-completed">0</span>/6
+                </div>
+            </div>
+        </section>
 
-  const goals = {
-    evita: [
-      { icon: <Book className="w-5 h-5" />, text: "Leer un libro nuevo cada mes" },
-      { icon: <PiggyBank className="w-5 h-5" />, text: "Ahorrar para comprar algo especial" },
-      { icon: <Trophy className="w-5 h-5" />, text: "Practicar deportes dos veces por semana" }
-    ],
-    mara: [
-      { icon: <Palette className="w-5 h-5" />, text: "Crear un proyecto artístico mensual" },
-      { icon: <Brain className="w-5 h-5" />, text: "Mejorar en matemáticas" },
-      { icon: <Heart className="w-5 h-5" />, text: "Ayudar en casa semanalmente" }
-    ],
-    adrian: [
-      { icon: <Book className="w-5 h-5" />, text: "Leer 15 minutos cada día" },
-      { icon: <Trophy className="w-5 h-5" />, text: "Aprender un deporte nuevo" },
-      { icon: <Smile className="w-5 h-5" />, text: "Hacer una buena acción diaria" }
-    ]
-  };
+        <!-- Objetivos de Desarrollo Personal -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-center">Nuestro Viaje de Crecimiento</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Adrian's Goals & Feelings -->
+                <div class="bg-blue-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">Adrian Joaquín (8 años)</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded-lg">
+                            <h4 class="font-bold mb-2">Metas de Desarrollo</h4>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600">
+                                    <span class="ml-2">Leer las descripciones de las atracciones</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600">
+                                    <span class="ml-2">Administrar sabiamente mi dinero para snacks</span>
+                                </label>
+                            </div>
+                        </div>
 
-  return (
-    <div className="max-w-4xl mx-auto p-6 space-y-8">
-      {/* Header */}
-      <div className="text-center bg-gradient-to-r from-blue-500 to-purple-500 text-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-4xl font-bold mb-4">¡Bienvenidos a Busch Gardens Tampa Bay!</h1>
-        <h2 className="text-2xl">Familia González Hauser</h2>
-        <p className="mt-2">2 de Enero de 2025</p>
-      </div>
-
-      {/* Individual Welcome Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {['Evita', 'Mara', 'Adrian Joaquín'].map((name, index) => (
-          <Card key={name} className="bg-white shadow-lg">
-            <CardContent className="p-6 text-center">
-              <h3 className="text-xl font-bold mb-2">{name}</h3>
-              <p className="text-gray-600">
-                {index === 0 && '12 años - Nuestra bailarina estrella'}
-                {index === 1 && '10 años - La artista de la familia'}
-                {index === 2 && '8 años - Nuestro pequeño científico'}
-              </p>
-              <p className="mt-4">
-                {index === 0 && '¡Evita, tu energía contagiosa hará de este día una aventura inolvidable! ¿Lista para bailar por todo el parque? 💃'}
-                {index === 1 && '¡Mara, tus ojos artistas verán la magia en cada rincón! ¿Cuántos colores diferentes encontrarás hoy? 🎨'}
-                {index === 2 && '¡Adrian Joaquín, prepara tu laboratorio móvil! Hoy hay muchos experimentos divertidos por hacer 🔬'}
-              </p>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-
-      {/* Theme Park Goals */}
-      <Card className="bg-white">
-        <CardContent className="p-6">
-          <h2 className="text-2xl font-bold text-center mb-6">Metas Para Hoy en Busch Gardens</h2>
-          <div className="space-y-4">
-            {[
-              { icon: "📚", text: "Leer las descripciones de las atracciones" },
-              { icon: "💰", text: "Administrar sabiamente el dinero para gastos" },
-              { icon: "🎯", text: "Probar una atracción nueva" },
-              { icon: "🎨", text: "Encontrar 3 cosas para dibujar después" },
-              { icon: "🔢", text: "Contar los tiempos de espera" },
-              { icon: "❤️", text: "Agradecer a un trabajador del parque" }
-            ].map((goal, index) => (
-              <div key={index} className="flex items-center space-x-4 bg-gray-50 p-4 rounded-lg">
-                <input
-                  type="checkbox"
-                  className="form-checkbox h-5 w-5 text-blue-500"
-                />
-                <span className="text-xl mr-2">{goal.icon}</span>
-                <span className="flex-grow">{goal.text}</span>
-              </div>
-            ))}
-          </div>
-          <div className="text-right mt-4">
-            <p className="text-gray-600">Completado: 0/6</p>
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Yearly Goals Introduction */}
-      <div className="space-y-6">
-        <Card className="bg-white">
-          <CardContent className="p-6 text-center">
-            <h2 className="text-2xl font-bold mb-4">Practicando Establecer Objetivos</h2>
-            <p className="text-gray-600 mb-4">
-              Hoy vamos a empezar una práctica muy especial: aprender a establecer y cumplir objetivos. 
-              ¡Comenzaremos aquí mismo en Busch Gardens! Esta experiencia nos ayudará a entender 
-              cómo podemos planear y lograr metas más grandes durante todo el año.
-            </p>
-            <p className="text-gray-600">
-              Cuando logremos nuestras metas en el parque, estaremos practicando habilidades 
-              importantes como la planificación, la perseverancia y la responsabilidad.
-            </p>
-          </CardContent>
-        </Card>
-        
-        <h2 className="text-2xl font-bold text-center mb-6">Ideas de Objetivos para el Año</h2>
-        {Object.entries(goals).map(([child, childGoals]) => (
-          <Card key={child} className="bg-white">
-            <CardContent className="p-6">
-              <h3 className="text-xl font-bold mb-4 capitalize">{child}</h3>
-              <div className="space-y-4">
-                {childGoals.map((goal, index) => (
-                  <div key={index} className="flex items-center space-x-4">
-                    {goal.icon}
-                    <span>{goal.text}</span>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-
-      {/* Attitude Tracker */}
-      <div className="space-y-6">
-        <h2 className="text-2xl font-bold text-center">Evaluación de Mamá y Papá</h2>
-        {Object.keys(attitudes).map((child) => (
-          <Card key={child} className="bg-white">
-            <CardContent className="p-6">
-              <h3 className="text-xl font-bold mb-4 capitalize">{child}</h3>
-              <div className="bg-blue-50 p-4 rounded-lg mb-4">
-                <p className="text-sm text-blue-800">
-                  {child === 'evita' && 'Evaluaremos tu liderazgo positivo y cómo ayudas a tus hermanos. ¡Tu energía es contagiosa!'}
-                  {child === 'mara' && 'Valoraremos tu creatividad y paciencia. ¡Tu tranquilidad hace la diferencia!'}
-                  {child === 'adrian' && 'Observaremos tu curiosidad y entusiasmo. ¡Tus preguntas nos hacen pensar!'}
-                </p>
-              </div>
-              <div className="space-y-6">
-                {['midday', 'endday'].map((time) => (
-                  <div key={time} className="space-y-4">
-                    <div className="border-l-4 border-blue-500 pl-4">
-                      <p className="font-medium text-lg">{time === 'midday' ? 'Mitad del día' : 'Final del día'}</p>
-                      <p className="text-sm text-gray-600 mt-1">Calificación de 1-10 en:</p>
-                      <ul className="list-disc ml-4 text-sm text-gray-600">
-                        <li>Actitud con la familia</li>
-                        <li>Control del temperamento</li>
-                        <li>Apoyo al grupo</li>
-                      </ul>
+                        <div class="bg-white p-4 rounded-lg">
+                            <h4 class="font-bold mb-2">¿Cómo me siento?</h4>
+                            <textarea class="w-full p-2 border rounded" rows="3" placeholder="Hoy me siento..."></textarea>
+                            
+                            <div class="mt-4">
+                                <p class="mb-2">Mi estado de ánimo:</p>
+                                <select class="w-full p-2 border rounded">
+                                    <option>😃 ¡Muy emocionado!</option>
+                                    <option>😊 Feliz</option>
+                                    <option>😐 Normal</option>
+                                    <option>😴 Cansado</option>
+                                    <option>😟 Preocupado</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
-                    <div className="flex space-x-2">
-                      {[...Array(10)].map((_, i) => (
-                        <button
-                          key={i}
-                          className={`p-2 rounded-full ${
-                            attitudes[child][time] === i + 1
-                              ? 'bg-blue-500 text-white'
-                              : 'bg-gray-200'
-                          }`}
-                          onClick={() =>
-                            setAttitudes({
-                              ...attitudes,
-                              [child]: { ...attitudes[child], [time]: i + 1 }
-                            })
-                          }
-                        >
-                          {i + 1}
-                        </button>
-                      ))}
+                </div>
+
+                <!-- Mara's Goals & Feelings -->
+                <div class="bg-purple-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">Mara (10 años)</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded-lg">
+                            <h4 class="font-bold mb-2">Metas de Desarrollo</h4>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="form-checkbox h-5 w-5 text-purple-600">
+                                    <span class="ml-2">Encontrar 3 cosas para dibujar</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="form-checkbox h-5 w-5 text-purple-600">
+                                    <span class="ml-2">Practicar matemáticas contando tiempos de espera</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-lg">
+                            <h4 class="font-bold mb-2">¿Cómo me siento?</h4>
+                            <textarea class="w-full p-2 border rounded" rows="3" placeholder="Hoy me siento..."></textarea>
+                            
+                            <div class="mt-4">
+                                <p class="mb-2">Mi estado de ánimo:</p>
+                                <select class="w-full p-2 border rounded">
+                                    <option>😃 ¡Muy emocionada!</option>
+                                    <option>😊 Feliz</option>
+                                    <option>😐 Normal</option>
+                                    <option>😴 Cansada</option>
+                                    <option>😟 Preocupada</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+                </div>
 
-      {/* Feelings Section */}
-      <div className="space-y-6">
-        <h2 className="text-2xl font-bold text-center">¿Cómo te sientes?</h2>
-        {Object.keys(feelings).map((child) => (
-          <Card key={child} className="bg-white">
-            <CardContent className="p-6">
-              <h3 className="text-xl font-bold mb-4 capitalize">{child}</h3>
-              <textarea
-                className="w-full p-4 border rounded-lg"
-                rows="3"
-                placeholder="Escribe cómo te sientes..."
-                value={feelings[child]}
-                onChange={(e) =>
-                  setFeelings({ ...feelings, [child]: e.target.value })
-                }
-              />
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+                <!-- Evita's Goals & Feelings -->
+                <div class="bg-pink-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">Evita (12 años)</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded-lg">
+                            <h4 class="font-bold mb-2">Metas de Desarrollo</h4>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="form-checkbox h-5 w-5 text-pink-600">
+                                    <span class="ml-2">Ayudar a organizar el recorrido del día</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="form-checkbox h-5 w-5 text-pink-600">
+                                    <span class="ml-2">Agradecer a un trabajador del parque</span>
+                                </label>
+                            </div>
+                        </div>
 
-      {/* Activities Checklist */}
-      <Card className="bg-white">
-        <CardContent className="p-6">
-          <h2 className="text-2xl font-bold text-center mb-6">¡Actividades del Día!</h2>
-          <div className="space-y-6">
-            <div>
-              <p className="font-bold mb-2">¿Quién se subió a las montañas rusas con Papá?</p>
-              {['Evita', 'Mara', 'Adrian Joaquín'].map((name) => (
-                <label key={name} className="flex items-center space-x-2 mb-2">
-                  <input
-                    type="checkbox"
-                    checked={activities.rollercoaster.includes(name)}
-                    onChange={(e) => {
-                      if (e.target.checked) {
-                        setActivities({
-                          ...activities,
-                          rollercoaster: [...activities.rollercoaster, name]
-                        });
-                      } else {
-                        setActivities({
-                          ...activities,
-                          rollercoaster: activities.rollercoaster.filter(
-                            (n) => n !== name
-                          )
-                        });
-                      }
-                    }}
-                  />
-                  <span>{name}</span>
-                </label>
-              ))}
+                        <div class="bg-white p-4 rounded-lg">
+                            <h4 class="font-bold mb-2">¿Cómo me siento?</h4>
+                            <textarea class="w-full p-2 border rounded" rows="3" placeholder="Hoy me siento..."></textarea>
+                            
+                            <div class="mt-4">
+                                <p class="mb-2">Mi estado de ánimo:</p>
+                                <select class="w-full p-2 border rounded">
+                                    <option>😃 ¡Muy emocionada!</option>
+                                    <option>😊 Feliz</option>
+                                    <option>😐 Normal</option>
+                                    <option>😴 Cansada</option>
+                                    <option>😟 Preocupada</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div>
-              <p className="font-bold mb-2">¿Qué fue lo que más les gustó?</p>
-              <textarea
-                className="w-full p-4 border rounded-lg"
-                rows="3"
-                value={activities.favorite}
-                onChange={(e) =>
-                  setActivities({ ...activities, favorite: e.target.value })
-                }
-              />
+        <!-- Reflexión sobre Objetivos Anuales -->
+        <section class="mb-12 bg-green-50 p-6 rounded-lg">
+            <h2 class="text-2xl font-bold mb-6 text-center">Aprendizaje y Crecimiento</h2>
+            <p class="mb-4">Nuestra aventura en Busch Gardens es más que diversión - ¡es una oportunidad para practicar habilidades importantes!</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-4 rounded-lg">
+                    <h3 class="font-bold mb-2">🎯 Habilidades que Practicamos Hoy:</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Lectura activa (descripciones de atracciones)</li>
+                        <li>Matemáticas prácticas (tiempos de espera, presupuesto)</li>
+                        <li>Creatividad (dibujo, observación)</li>
+                        <li>Habilidades sociales (agradecer a trabajadores)</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-4 rounded-lg">
+                    <h3 class="font-bold mb-2">🌱 Conexión con Metas Anuales:</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Lectura: Practicamos con señales y descripciones</li>
+                        <li>Finanzas: Aprendemos sobre presupuesto</li>
+                        <li>Actividad Física: ¡Caminamos y nos divertimos!</li>
+                        <li>Creatividad: Inspiración para dibujar</li>
+                    </ul>
+                </div>
             </div>
+        </section>
 
-            <div>
-              <p className="font-bold mb-2">¿Qué aprendieron hoy?</p>
-              <textarea
-                className="w-full p-4 border rounded-lg"
-                rows="3"
-                value={activities.learned}
-                onChange={(e) =>
-                  setActivities({ ...activities, learned: e.target.value })
-                }
-              />
+        <!-- Recuerdos Familiares -->
+        <section class="mb-12 bg-pink-50 p-6 rounded-lg">
+            <h2 class="text-2xl font-bold mb-6 text-center">📸 Momentos Especiales con Mamá y Papá</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-4 rounded-lg">
+                    <h3 class="font-bold mb-4">Fotos Familiares 🤳</h3>
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-pink-600">
+                            <span class="ml-2">Foto con Mamá en tu atracción favorita</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-pink-600">
+                            <span class="ml-2">Foto con Papá en una montaña rusa</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-pink-600">
+                            <span class="ml-2">Foto familiar con un personaje del parque</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="bg-white p-4 rounded-lg">
+                    <h3 class="font-bold mb-4">Ayudando a la Familia ❤️</h3>
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-pink-600">
+                            <span class="ml-2">Ayudar a cargar las mochilas</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-pink-600">
+                            <span class="ml-2">Mantener el grupo unido en el parque</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-pink-600">
+                            <span class="ml-2">Compartir snacks y agua con todos</span>
+                        </label>
+                    </div>
+                </div>
             </div>
-          </div>
-        </CardContent>
-      </Card>
+        </section>
 
-      {/* Closing Message */}
-      <div className="text-center bg-gradient-to-r from-purple-500 to-blue-500 text-white p-8 rounded-lg shadow-lg">
-        <h2 className="text-2xl font-bold mb-4">¡Gracias por compartir este día tan especial!</h2>
-        <p>Los momentos en familia son los más valiosos, y hoy fue un día lleno de aprendizaje.</p>
-        <div className="mt-4 space-y-2">
-          <p>Aprendimos a:</p>
-          <ul className="text-left max-w-md mx-auto">
-            <li>• Establecer y cumplir metas juntos</li>
-            <li>• Apoyarnos como familia</li>
-            <li>• Manejar nuestras emociones en momentos de emoción</li>
-            <li>• Ser responsables con nuestro tiempo y recursos</li>
-          </ul>
-        </div>
-        <p className="mt-4">¡Cada aventura es una oportunidad para crecer juntos!</p>
-      </div>
+        <!-- Reflexión Final -->
+        <section class="mb-12 bg-blue-50 p-6 rounded-lg">
+            <h2 class="text-2xl font-bold mb-6 text-center">🌟 Reflexión Familiar</h2>
+            
+            <div class="space-y-6">
+                <div class="bg-white p-4 rounded-lg">
+                    <h3 class="font-bold mb-4">¿Qué aprendimos hoy?</h3>
+                    <textarea class="w-full p-2 border rounded" rows="3" placeholder="Hoy aprendí..."></textarea>
+                </div>
+
+                <div class="bg-white p-4 rounded-lg">
+                    <h3 class="font-bold mb-4">¿Qué fue lo que más nos gustó?</h3>
+                    <textarea class="w-full p-2 border rounded" rows="3" placeholder="Lo que más me gustó fue..."></textarea>
+                </div>
+
+                <div class="bg-white p-4 rounded-lg">
+                    <h3 class="font-bold mb-4">¿Qué metas queremos lograr cuando volvamos a Monterrey?</h3>
+                    <textarea class="w-full p-2 border rounded" rows="3" placeholder="Cuando regrese a Monterrey quiero..."></textarea>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mensaje de Cierre -->
+        <footer class="text-center text-gray-600">
+            <h2 class="text-2xl font-bold text-blue-600 mb-4">¡Gracias por un día increíble!</h2>
+            <p class="mb-4">Familia González Hauser, ¡hemos creado recuerdos maravillosos juntos!</p>
+            <p class="mb-4">Este día nos ha ayudado a practicar habilidades importantes que usaremos en Monterrey:</p>
+            <ul class="text-left max-w-md mx-auto mb-4">
+                <li>✨ Establecer y cumplir metas</li>
+                <li>✨ Trabajar en equipo como familia</li>
+                <li>✨ Ser valientes y probar cosas nuevas</li>
+                <li>✨ Ser agradecidos y ayudar a otros</li>
+            </ul>
+            <p>¡Sigamos practicando estas habilidades todos los días!</p>
+        </footer>
     </div>
-  );
-};
 
-export default FamilyAdventure;
+    <script>
+        // Contador de metas completadas
+        function updateGoalsCount() {
+            const totalCheckboxes = document.querySelectorAll('.bg-yellow-50 input[type="checkbox"]').length;
+            const checkedCheckboxes = document.querySelectorAll('.bg-yellow-50 input[type="checkbox"]:checked').length;
+            document.getElementById('goals-completed').textContent = checkedCheckboxes;
+        }
+
+        // Guardar estado en localStorage
+        document.querySelectorAll('input, select, textarea').forEach(element => {
+            element.addEventListener('change', (e) => {
+                localStorage.setItem(e.target.id || Math.random().toString(), e.target.value || e.target.checked);
+                if (e.target.type === 'checkbox') {
+                    updateGoalsCount();
+                }
+            });
+        });
+
+        // Cargar estado guardado
+        window.addEventListener('load', () => {
+            document.querySelectorAll('input, select, textarea').forEach(element => {
+                const savedValue = localStorage.getItem(element.id || '');
+                if (savedValue !== null) {
+                    if (element.type === 'checkbox') {
+                        element.checked = savedValue === 'true';
+                    } else {
+                        element.value = savedValue;
+                    }
+                }
+            });
+            updateGoalsCount();
+        });
+    </script>
+</body>
+</html>
